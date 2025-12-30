@@ -1,6 +1,6 @@
 """ConceptMiner: High-level user-facing class for concept mining."""
 
-from typing import List, Set, Optional, Iterable, Callable, Union, Tuple
+from typing import List, Set, Optional, Iterable, Callable, Union
 from .llm_providers import BaseLLMProvider, FunctionProvider
 from .prompt import generate_prompt
 from .utils import _validate_prompt_required_vars

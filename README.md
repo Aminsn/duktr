@@ -1,8 +1,15 @@
-# duktr
+<!-- # duktr <a href="https://github.com/aminsn/duktr"><img src="assets/logo.png" align="right" height="138" alt="duktr logo" /></a> -->
+<!-- <img src="assets/logo.png" width=150/> deduct + induct via LLMs -->
+<!-- <img src="assets/logo.png" width="150" style="vertical-align:middle" alt="duktr logo" /> <span style="vertical-align:middle">deduct + induct via LLMs</span> -->
+
+<img src="assets/logo.png" width="150" style="vertical-align:middle; margin-right:16px;" alt="duktr logo" />
+<span style="vertical-align:middle; font-size:1.25em; font-weight:700;">deduct + induct via LLMs</span>
+
+---
 
 `duktr` is an LLM-powered Python package for **dynamic concept mining** and **mixed-membership (multi-label) assignment/clustering** over text. It maintains an evolving catalog of concepts and, for each input text, returns the set of concepts that describe it, reusing existing concepts where possible and introducing new concepts when needed.
 
-This is useful when the concept set cannot be pre-defined and will evolve over time (e.g., news topics, issues in tickets, patients’ symptoms, canonical product identities). You define what a “concept” means for your use case, and the package provides the flexibility to target the concepts you have in mind to cluster textual information based on the specified concept.
+This is useful when the concept set cannot be pre-defined and will evolve over time (e.g., news topics, issues in tickets, patients’ symptoms, canonical product identities). You define what a “concept” means for your use case, and `duktr` provides the flexibility to target the concepts you have in mind to cluster textual information based on the specified concept.
 
 ---
 
@@ -36,16 +43,16 @@ miner = ConceptMiner(
     concept="symptom",
     rules="""
     - Use short noun phrases (2–6 words)
-    - Symptoms must be standalone; no duplicates
+    - Symptom(s) must be independent; no duplicates
     - Output in English
     """,
 )
 
 # Example inputs (note: the third record paraphrases the first).
 texts = [
-    "Patient reports frequent headaches and occasional dizziness.",
-    "The individual is experiencing shortness of breath during exertion.",
-    "The patient describes recurrent head pain along with vertigo.",
+     "Patient reports frequent headaches and occasional dizziness.",
+     "The individual is experiencing shortness of breath during exertion.",
+     "The patient describes recurrent head pain along with vertigo." # paraphrased version of first text
 ]
 
 # Mine concepts per text.
