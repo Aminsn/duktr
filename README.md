@@ -1,0 +1,71 @@
+# duktr
+
+`duktr` is an LLM-powered Python package for **dynamic concept mining** and **mixed-membership (multi-label) assignment/clustering** over text. It maintains an evolving catalog of concepts and, for each input text, returns the set of concepts that describe it, reusing existing concepts where possible and introducing new concepts when needed.
+
+This is useful when the concept set cannot be pre-defined and will evolve over time (e.g., news topics, issues in tickets, patients’ symptoms, canonical product identities). You define what a “concept” means for your use case, and the package provides the flexibility to target the concepts you have in mind to cluster textual information based on the specified concept.
+
+---
+
+## Features
+
+- **Mixed-membership labeling:** each text can map to zero, one, or many concepts.
+- **Dynamic concept discovery:** concepts are discovered from data and the catalog grows over time.
+- **Catalog-aware prompting:** prompts reuse of existing concepts to avoid drift/duplication and to support clustering.
+- **Scales to large catalogs:** progressive partitioning keeps LLM inputs bounded as the catalog grows.
+- **Pluggable LLM backends:** OpenAI, Gemini, or a custom Python function (including your LLM of choice, e.g., Hugging Face).
+
+---
+
+## Installation
+
+```bash
+pip install duktr
+```
+
+---
+
+## Quick Start
+
+```python
+from duktr import ConceptMiner, GeminiProvider
+
+# Initialize a miner that extracts "symptom" as the target concept from free-text records.
+miner = ConceptMiner(
+    llm=GeminiProvider(api_key="YOUR_API_KEY"),
+    task="Extract the symptom(s) of the patient from their record.",
+    concept="symptom",
+    rules="""
+    - Use short noun phrases (2–6 words)
+    - Symptoms must be standalone; no duplicates
+    - Output in English
+    """,
+)
+
+# Example inputs (note: the third record paraphrases the first).
+texts = [
+    "Patient reports frequent headaches and occasional dizziness.",
+    "The individual is experiencing shortness of breath during exertion.",
+    "The patient describes recurrent head pain along with vertigo.",
+]
+
+# Mine concepts per text.
+per_text_concepts = miner.mine(texts)
+
+print(per_text_concepts)  # concepts found in each record
+print(miner.catalog)      # global catalog across all records  
+```
+
+Expected output:
+
+```python
+[{"Headache", "Dizziness"}, {"Shortness of breath"}, {"Headache", "Dizziness"}]
+{"Headache", "Dizziness", "Shortness of breath"}
+```
+---
+
+## License and contributing
+
+- **License:** MIT License. See the `LICENSE` file for full terms.
+- **Contributing:** Issues and pull requests are welcome. 
+
+---
