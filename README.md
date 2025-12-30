@@ -1,7 +1,6 @@
 <img src="assets/logo.png" align="left" height="150" alt="duktr logo" />
-
 <br/>
-<h1 align="center" style="margin-left:170px;">deduct + induct via LLMs</h1>
+<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;deduct + induct via LLMs</h1>
 <br clear="left"/>
 <br/>
 
