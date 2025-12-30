@@ -2,14 +2,10 @@
 <br/><br/>
 
 <div align="center">
-  <div style="font-size:2em; font-weight:800; line-height:1.1; margin:0;">
-    deduct + induct via LLMs
-  </div>
+  <h1 style="border-bottom:none; margin:0;">deduct + induct via LLMs</h1>
 </div>
 
 <br clear="left"/>
-
-
 
 `duktr` is an LLM-powered Python package for **dynamic concept mining** and **mixed-membership (multi-label) assignment/clustering** over text. It maintains an evolving catalog of concepts and, for each input text, returns the set of concepts that describe it, reusing existing concepts where possible and introducing new concepts when needed.
 
