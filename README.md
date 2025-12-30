@@ -2,8 +2,13 @@
 <!-- <img src="assets/logo.png" width=150/> deduct + induct via LLMs -->
 <!-- <img src="assets/logo.png" width="150" style="vertical-align:middle" alt="duktr logo" /> <span style="vertical-align:middle">deduct + induct via LLMs</span> -->
 
-<img src="assets/logo.png" width="150" style="vertical-align:middle; margin-right:16px;" alt="duktr logo" />
-<span style="vertical-align:middle; font-size:1.25em; font-weight:700;">deduct + induct via LLMs</span>
+<!-- <img src="assets/logo.png" width="150" style="vertical-align:middle; margin-right:16px;" alt="duktr logo" />
+<span style="vertical-align:middle; font-size:1.25em; font-weight:700;">deduct + induct via LLMs</span> -->
+
+<p>
+  <img src="assets/logo.png" width="150" alt="duktr logo" style="vertical-align:middle; margin-right:16px;">
+  <span style="vertical-align:middle; font-size:2em; font-weight:800;">deduct + induct via LLMs</span>
+</p>
 
 ---
 
