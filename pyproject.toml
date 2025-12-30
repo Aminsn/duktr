@@ -2,9 +2,15 @@
 requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
+
 [project]
 name = "duktr"
 version = "0.1.0"
+requires-python = ">=3.9"
+dependencies = [
+  "requests>=2.0",
+]
+
 
 [project.optional-dependencies]
 test = [
