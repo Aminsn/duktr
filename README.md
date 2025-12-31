@@ -5,6 +5,8 @@
 
 This is useful when the concept set cannot be pre-defined and will evolve over time (e.g., news topics, issues in tickets, patients’ symptoms, canonical product identities). You define what a “concept” means for your use case, and `duktr` provides the flexibility to extract the concepts you have in mind to cluster textual information based on the specified concept.
 
+![Demo](https://github.com/user-attachments/assets/333ae6bb-5074-4482-81d1-cb326651fe17)
+
 ---
 
 ## Features
