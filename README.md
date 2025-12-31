@@ -3,7 +3,7 @@
 
 `duktr` is an LLM-powered Python package for **dynamic concept mining** and **mixed-membership (multi-label) assignment/clustering** over text. It maintains an evolving catalog of concepts and, for each input text, returns the set of concepts that describe it, reusing existing concepts where possible and introducing new concepts when needed.
 
-This is useful when the concept set cannot be pre-defined and will evolve over time (e.g., news topics, issues in tickets, patients’ symptoms, canonical product identities). You define what a “concept” means for your use case, and `duktr` provides the flexibility to target the concepts you have in mind to cluster textual information based on the specified concept.
+This is useful when the concept set cannot be pre-defined and will evolve over time (e.g., news topics, issues in tickets, patients’ symptoms, canonical product identities). You define what a “concept” means for your use case, and `duktr` provides the flexibility to extract the concepts you have in mind to cluster textual information based on the specified concept.
 
 ---
 
