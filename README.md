@@ -58,12 +58,24 @@ print(per_text_concepts)  # concepts found in each record
 print(miner.catalog)      # global catalog across all records  
 ```
 
+> **Notes:** 
+
+- There are multiple ways to configure the prompt used by the `ConceptMiner`. See the [documentation](docs/quickstart.md#2-initialize-the-conceptminer) for more details.
+- Run time is mainly determined by the computational speed of the underlying LLM (Gemini is on average much faster than OpenAI).
+- Test out different prompt templates and rules to see what works best for your use case with a small sample of your data before running on the full dataset.
+
 Expected output:
 
 ```python
 [{"Headache", "Dizziness"}, {"Shortness of breath"}, {"Headache", "Dizziness"}]
 {"Headache", "Dizziness", "Shortness of breath"}
 ```
+---
+
+## Documentation
+
+For more detailed information, see the [full documentation](docs/index.md).
+
 ---
 
 ## License and contributing
