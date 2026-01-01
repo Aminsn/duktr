@@ -142,7 +142,7 @@ def run(
             ) from None
         
     if progress:
-        sys.stderr.write(f"\rCompleted processing {total}/{total} texts.\n")
+        sys.stderr.write(f"\rProcessing complete: {total} total.\n")
         sys.stderr.flush()
 
     return per_row_results, catalog
