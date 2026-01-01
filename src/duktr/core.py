@@ -1,7 +1,6 @@
 from typing import (
     Any,
     Callable,
-    Iterable,
     List,
     Optional,
     Set,
@@ -31,8 +30,8 @@ class RunStoppedError(RuntimeError):
 
 
 def run(
-    rows: Iterable[Any],
-    func: Callable[[Any, Set[Any]], Iterable[Any]],
+    rows: List[Any],
+    func: Callable[[Any, Set[Any]], Set[Any]],
     threshold: int,
     input_catalog: Optional[Set[Any]] = None,
 ) -> Tuple[List[Set[Any]], Set[Any]]:
@@ -53,8 +52,8 @@ def run(
         is unioned with `carried_matched`.
 
     Args:
-        rows: Iterable of input rows to process.
-        func: Callable that takes `(row, input_set)` and returns an iterable of concepts for the row.
+        rows: list of input rows to process.
+        func: Callable that takes `(row, input_set)` and returns a set of concepts for the row.
               Returned concepts may include concepts not present in `input_set` (i.e., "new" concepts).
         threshold: Maximum catalog size to process in a single call; above this, the catalog is
             partitioned into chunks of size up to `threshold`.
