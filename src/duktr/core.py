@@ -1,3 +1,4 @@
+import sys
 from typing import (
     Any,
     Callable,
@@ -34,6 +35,8 @@ def run(
     func: Callable[[Any, Set[Any]], Set[Any]],
     threshold: int,
     input_catalog: Optional[Set[Any]] = None,
+        *,
+    progress: bool = False,
 ) -> Tuple[List[Set[Any]], Set[Any]]:
     """
     Evaluate rows against a concept catalog using progressive partitioning and carry-forward matches.
@@ -58,6 +61,7 @@ def run(
         threshold: Maximum catalog size to process in a single call; above this, the catalog is
             partitioned into chunks of size up to `threshold`.
         input_catalog: Optional initial concept catalog. If not provided, starts empty.
+        progress: If True, display progress updates to stderr.
 
     Returns:
         A tuple `(per_row_results, catalog)` where:
@@ -74,7 +78,15 @@ def run(
     catalog = set() if input_catalog is None else set(input_catalog)
     per_row_results: List[Set[Any]] = []
 
+    total = len(rows)
+
     for i, row in enumerate(rows):
+        row_no = i + 1
+
+        if progress:
+            sys.stderr.write(f"\rProcessing text {row_no}/{total} ...")
+            sys.stderr.flush()
+
         try:
             # -------------------------------------------------
             # Simple path: one call with the full catalog
@@ -128,5 +140,9 @@ def run(
                 catalog=catalog,
                 original_exception=e,
             ) from None
+        
+    if progress:
+        sys.stderr.write(f"\rCompleted processing {total}/{total} texts.\n")
+        sys.stderr.flush()
 
     return per_row_results, catalog

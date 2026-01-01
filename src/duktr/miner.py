@@ -124,13 +124,15 @@ class ConceptMiner:
     
     def mine(
         self,
-        texts: Iterable[str]
+        texts: Iterable[str],
+        progress: bool = False
     ) -> List[Set[str]]:
         """
         Discover concepts from texts.
 
         Args:
             texts: Iterable of text documents
+            progress: Whether to show a progress tracker
 
         Returns:
             Per-text results as a list of sets of concepts.
@@ -139,7 +141,7 @@ class ConceptMiner:
             Sets `self.results` and `self.catalog`. After calling, the consolidated catalog
             is available via `self.catalog`.
         """
-        # Convert to list for potential reuse
+
         texts_list = list(texts)
         
         try:
@@ -148,7 +150,8 @@ class ConceptMiner:
                 rows=texts_list,
                 func=self._miner_llm,
                 threshold=self.threshold,
-                input_catalog=self.initial_catalog
+                input_catalog=self.initial_catalog,
+                progress=progress,
             )
 
             return self.results
