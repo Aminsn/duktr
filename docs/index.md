@@ -21,3 +21,4 @@ This is useful when the concept set cannot be pre-defined and will evolve over t
 - **[Quickstart](./quickstart.md):** A step-by-step guide to getting started with `duktr`.
 - **[API Reference](./api.md):** A detailed API reference for all public classes and functions.
 - **[Using a Custom LLM](./custom_llm.md):** Learn how to use `duktr` with your own custom LLM, including models from Hugging Face.
+- **[Thresholding and Catalog Partitioning](./thresholding.md):** Understand how `duktr` manages large concept catalogs with the `threshold` parameter.
